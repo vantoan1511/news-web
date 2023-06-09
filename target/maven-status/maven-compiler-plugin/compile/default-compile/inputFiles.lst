@@ -1,0 +1,12 @@
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\controller\admin\HomeController.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\controller\web\HomeController.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\RoleModel.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\CategoryModel.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\dao\ICategoryDAO.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\service\ICategoryService.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\service\impl\CategoryService.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\AbstractModel.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\dao\impl\CategoryDAO.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\CommentModel.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\NewsModel.java
+D:\Java Web\Web-tin-tuc\news-web\src\main\java\com\newsweb\model\UserModel.java

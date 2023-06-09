@@ -1,0 +1,12 @@
+com\newsweb\service\ICategoryService.class
+com\newsweb\dao\impl\CategoryDAO.class
+com\newsweb\model\AbstractModel.class
+com\newsweb\model\UserModel.class
+com\newsweb\model\CommentModel.class
+com\newsweb\model\NewsModel.class
+com\newsweb\service\impl\CategoryService.class
+com\newsweb\dao\ICategoryDAO.class
+com\newsweb\model\RoleModel.class
+com\newsweb\controller\admin\HomeController.class
+com\newsweb\controller\web\HomeController.class
+com\newsweb\model\CategoryModel.class
