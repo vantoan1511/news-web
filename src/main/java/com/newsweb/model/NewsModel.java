@@ -1,6 +1,6 @@
 package com.newsweb.model;
 
-public class NewsModel extends AbstractModel {
+public class NewsModel extends AbstractModel<NewsModel> {
 
 	private String title;
 	private String thumbnail;
@@ -47,5 +47,4 @@ public class NewsModel extends AbstractModel {
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
 	}
-
 }

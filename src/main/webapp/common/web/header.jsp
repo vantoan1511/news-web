@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
 <header class="primary">
 	<div class="firstbar">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-sm-12">
 					<div class="brand">
-						<a href="/home"> <img
+						<a href=" <c:url value='/home' /> "> <img
 							src="${pageContext.request.contextPath}/template/web/images/logo.png"
 							alt="Magz Logo">
 						</a>
@@ -37,9 +40,9 @@
 				</div>
 				<div class="col-md-3 col-sm-12 text-right">
 					<ul class="nav-icons">
-						<li><a href="register.html"><i class="ion-person-add"></i>
+						<li><a href="<c:url value='/register' />"><i class="ion-person-add"></i>
 								<div>Register</div> </a></li>
-						<li><a href="login.html"><i class="ion-person"></i>
+						<li><a href=" <c:url value='/login?action=login' /> "><i class="ion-person"></i>
 								<div>Login</div> </a></li>
 					</ul>
 				</div>

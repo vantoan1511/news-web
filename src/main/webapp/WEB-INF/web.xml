@@ -4,7 +4,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>news-web</display-name>
-
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
 	<filter>
 		<filter-name>sitemesh</filter-name>
 		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
@@ -26,4 +28,9 @@
 	<session-config>
 		<tracking-mode>COOKIE</tracking-mode>
 	</session-config>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/views/404.jsp</location>
+	</error-page>
+
 </web-app>

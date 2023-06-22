@@ -14,9 +14,13 @@
 	rel="stylesheet">
 
 <!-- Vendor CSS Files -->
+
+
 <link
 	href="${pageContext.request.contextPath}/template/admin/assets/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://unpkg.com/bootstrap-table@1.22.0/dist/bootstrap-table.min.css">
 <link
 	href="${pageContext.request.contextPath}/template/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
@@ -40,7 +44,13 @@
 <link
 	href="${pageContext.request.contextPath}/template/admin/assets/css/style.css"
 	rel="stylesheet">
-
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"
+	integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
@@ -57,6 +67,7 @@
 	<%@ include file="/common/admin/footer.jsp"%>
 
 	<!-- Vendor JS Files -->
+
 	<script
 		src="${pageContext.request.contextPath}/template/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
 	<script
@@ -77,5 +88,12 @@
 	<!-- Template Main JS File -->
 	<script
 		src="${pageContext.request.contextPath}/template/admin/assets/js/main.js"></script>
+
+	<script
+		src="https://unpkg.com/bootstrap-table@1.22.0/dist/bootstrap-table.min.js"></script>
+	<script
+		src="https://unpkg.com/bootstrap-table@1.22.0/dist/extensions/mobile/bootstrap-table-mobile.js"></script>
+
+
 </body>
 </html>
