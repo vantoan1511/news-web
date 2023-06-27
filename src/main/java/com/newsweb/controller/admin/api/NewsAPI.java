@@ -1,6 +1,7 @@
 package com.newsweb.controller.admin.api;
 
 import java.io.IOException;
+import java.io.Serial;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import com.newsweb.utilities.SessionUtility;
 @WebServlet(urlPatterns = { "/api-admin-news" })
 public class NewsAPI extends HttpServlet {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Inject
