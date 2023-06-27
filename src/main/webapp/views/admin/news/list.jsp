@@ -21,12 +21,34 @@
 			</nav>
 		</div>
 		<!-- End Page Title -->
-		<form action="<c:url value='/admin-news-list'/> " id="formSubmit"
-			method="get">
-			<section class="section">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row">
+
+		<section class="section">
+			<div class="row">
+				<div class="col-lg-2">
+					<div class="row">
+						<div class="">
+							<a flag="info"
+								href="<c:url value='/admin-news?type=edit' />"
+								class="btn btn-outline-primary" aria-current="page"
+								title="Thêm bài viết" data-toggle="tooltip"> <span> <i
+									class="bi bi-plus-square"></i>
+							</span>
+							</a>
+							<button id="btnDelete" type="button" class="btn btn-danger"
+								data-toggle="tooltip" title="Xóa bài viết">
+								<span> <i class="bi bi-trash3"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row">
+						<form action="<c:url value='/admin-news'/> " id="formSubmit"
+							method="get">
 							<table class="table table-hover" data-check-on-init=true
 								data-mobile-responsive=true data-toggle="table">
 								<thead>
@@ -35,6 +57,7 @@
 										<th scope="col">Tên bài viết</th>
 										<th scope="col">Mô tả</th>
 										<th scope="col">Thể loại</th>
+										<th scope="col">Tùy chỉnh</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -44,22 +67,34 @@
 											<td>${item.title}</td>
 											<td>${item.description}</td>
 											<td>${item.categoryId }</td>
+											<td>
+												<c:url var="editURL" value='/admin-news' >
+													<c:param name="type" value="edit"/>
+													<c:param name="id" value="${item.getId()}"/>
+												</c:url>
+												<a class="btn btn-outline-primary" data-toggle="tooltip"
+												title = "Cập nhật bài viết" href="${editURL}">
+													<i class="bi bi-pencil-square"></i>
+												</a>
+											</td>
 										</tr>
 									</c:forEach>
 							</table>
+							<br/>
 							<div class="container">
 								<ul class="pagination justify-content-center" id="pagination"></ul>
-								<input type="hidden" value="" id="page" name="page">
-								<input type="hidden" value="" id="maxPageItem" name="maxPageItem">
+								<input type="hidden" value="list" id="type" name="type">
+								<input type="hidden" value="" id="page" name="page"> <input
+									type="hidden" value="" id="maxPageItem" name="maxPageItem">
 								<input type="hidden" value="" id="sortBy" name="sortBy">
 								<input type="hidden" value="" id="sortOrder" name="sortOrder">
 							</div>
-
-						</div>
+						</form>
 					</div>
 				</div>
-			</section>
-		</form>
+			</div>
+
+		</section>
 	</main>
 	<!-- End #main -->
 	<script type="text/javascript">
@@ -82,7 +117,7 @@
 					$('#sortBy').val('title');
 					$('#sortOrder').val('desc');
 					$('#formSubmit').submit();
-				}	
+				}
 			}
 		});
 	</script>

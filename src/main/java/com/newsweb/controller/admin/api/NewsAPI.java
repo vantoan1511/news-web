@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.newsweb.model.NewsModel;
+import com.newsweb.model.UserModel;
 import com.newsweb.service.INewsService;
 import com.newsweb.utilities.HttpUtility;
+import com.newsweb.utilities.SessionUtility;
 
 @WebServlet(urlPatterns = { "/api-admin-news" })
 public class NewsAPI extends HttpServlet {
@@ -28,9 +30,10 @@ public class NewsAPI extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		NewsModel news = HttpUtility.of(req.getReader()).toModel(NewsModel.class);
+		news.setCreateBy(((UserModel) SessionUtility.getInstance().getValue(req, "USERMODEL")).getUsername());
 		news = newsService.save(news);
 		mapper.writeValue(resp.getOutputStream(), news);
-		System.out.println(news);
+//		System.out.println(news);
 	}
 
 	@Override
@@ -49,6 +52,7 @@ public class NewsAPI extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		NewsModel updatedNews = HttpUtility.of(req.getReader()).toModel(NewsModel.class);
+		updatedNews.setModifyBy(((UserModel) SessionUtility.getInstance().getValue(req, "USERMODEL")).getUsername());
 		updatedNews = newsService.update(updatedNews);
 		mapper.writeValue(resp.getOutputStream(), updatedNews);
 	}

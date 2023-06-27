@@ -6,21 +6,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.newsweb.dao.GenericDAO;
 import com.newsweb.mapper.RowMapper;
 
 public class AbstractDAO<T> implements GenericDAO<T> {
 
+	ResourceBundle bundle = ResourceBundle.getBundle("db");
+	
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/newsweb";
-			String username = "root";
-			String password = "admin";
+			Class.forName(bundle.getString("driverName"));
+			String url = bundle.getString("url");
+			String username = bundle.getString("username");
+			String password = bundle.getString("password");
 			Connection connection = DriverManager.getConnection(url, username, password);
 			return connection;
 		} catch (Exception e) {

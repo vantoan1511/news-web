@@ -11,6 +11,9 @@
 	<decorator name="login" page="login.jsp">
 		<pattern>/login</pattern>
 	</decorator>
+	<decorator name="404" page="web.jsp">
+		<pattern>/404</pattern>
+	</decorator>
 	<decorator name="web" page="web.jsp">
 		<pattern>/*</pattern>
 	</decorator>

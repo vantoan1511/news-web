@@ -27,7 +27,7 @@
 							</div>
 						</div>
 						<div class="help-block">
-							<div>Popular:</div>
+							<div>Phổ biến:</div>
 							<ul>
 								<li><a href="#">HTML5</a></li>
 								<li><a href="#">CSS3</a></li>
@@ -40,10 +40,21 @@
 				</div>
 				<div class="col-md-3 col-sm-12 text-right">
 					<ul class="nav-icons">
-						<li><a href="<c:url value='/register' />"><i class="ion-person-add"></i>
-								<div>Register</div> </a></li>
-						<li><a href=" <c:url value='/login?action=login' /> "><i class="ion-person"></i>
-								<div>Login</div> </a></li>
+						<c:if test="${not empty USERMODEL }">
+							<li class="dropdown magz-dropdown"><a href="#"> <i
+									class="ion-person"></i>
+									<div>Xin chào, ${USERMODEL.fullname }</div>
+							</a></li>
+						</c:if>
+						<c:if test="${empty USERMODEL }">
+							<li><a href="<c:url value='/register' />"><i
+									class="ion-person-add"></i>
+									<div>Đăng ký</div> </a></li>
+							<li><a href=" <c:url value='/login?action=login' /> "><i
+									class="ion-person"></i>
+									<div>Đăng nhập</div> </a></li>
+						</c:if>
+
 					</ul>
 				</div>
 			</div>
@@ -296,22 +307,24 @@
 								</div>
 							</div>
 						</div></li>
-					<li class="dropdown magz-dropdown"><a href="#">Dropdown
-							Icons <i class="ion-ios-arrow-right"></i>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="#"><i class="icon ion-person"></i> My
-									Account</a></li>
-							<li><a href="#"><i class="icon ion-heart"></i> Favorite</a></li>
-							<li><a href="#"><i class="icon ion-chatbox"></i>
-									Comments</a></li>
-							<li><a href="#"><i class="icon ion-key"></i> Change
-									Password</a></li>
-							<li><a href="#"><i class="icon ion-settings"></i>
-									Settings</a></li>
-							<li class="divider"></li>
-							<li><a href="#"><i class="icon ion-log-out"></i> Logout</a></li>
-						</ul></li>
+					<c:if test="${not empty USERMODEL}">
+						<li class="dropdown magz-dropdown"><a href="#">Người dùng<i
+								class="ion-ios-arrow-right"></i>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="icon ion-person"></i> Hồ sơ</a></li>
+								<li><a href="#"><i class="icon ion-heart"></i> Ưa thích</a></li>
+								<li><a href="#"><i class="icon ion-chatbox"></i> Các
+										bình luận</a></li>
+								<li><a href="#"><i class="icon ion-key"></i> Đổi mật
+										khẩu</a></li>
+								<li><a href="#"><i class="icon ion-settings"></i> Thiết
+										lập</a></li>
+								<li class="divider"></li>
+								<li><a href=" <c:url value='/logout?action=logout' /> "><i
+										class="icon ion-log-out"></i> Đăng xuất</a></li>
+							</ul></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

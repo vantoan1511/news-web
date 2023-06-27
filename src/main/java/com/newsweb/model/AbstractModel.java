@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AbstractModel<T> {
 
-	private long id;
+	private Long id;
 	private Timestamp createDate;
 	private Timestamp modifyDate;
 	private String createBy;
@@ -19,12 +19,13 @@ public class AbstractModel<T> {
 	private Integer totalItem;
 	private String sortBy;
 	private String sortOrder;
+	private String type;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -126,6 +127,14 @@ public class AbstractModel<T> {
 
 	public void setSortOrder(String sortOrder) {
 		this.sortOrder = sortOrder;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

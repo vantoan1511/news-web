@@ -14,6 +14,9 @@
 				<div class="box box-border">
 					<div class="box-body">
 						<h4>ĐĂNG NHẬP</h4>
+						<c:if test="${not empty alert }">
+							<div class="alert alert-${alert}" role="alert">${message }</div>
+						</c:if>
 						<form action=" <c:url value='/login' /> " method="post">
 							<input type="hidden" name="action" value="login">
 							<div class="form-group">

@@ -18,4 +18,6 @@ public interface INewsService {
 	void delete(long[] ids);
 
 	int getTotalItem();
+	
+	NewsModel findById(Long id);
 }

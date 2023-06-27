@@ -13,10 +13,19 @@
 		</a>
 			<ul id="components-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a
-					href="<c:url value='/admin-news-list?page=1&maxPageItem=2&sortBy=title&sortOrder=desc'/>">
+				<li>
+					<c:url var="path" value="/admin-news">
+						<c:param name="type" value="list"/>
+						<c:param name="page" value="1"/>
+						<c:param name="maxPageItem" value="2"/>
+						<c:param name="sortBy" value="title"/>
+						<c:param name="sortOrder" value="desc"/>
+					</c:url>
+					<a
+					href="${path }">
 						<i class="bi bi-circle"></i><span>DS bài viết</span>
-				</a></li>
+					</a>
+				</li>
 			</ul></li>
 	</ul>
 
