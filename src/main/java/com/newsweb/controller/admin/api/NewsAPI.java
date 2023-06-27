@@ -33,7 +33,6 @@ public class NewsAPI extends HttpServlet {
 		news.setCreateBy(((UserModel) SessionUtility.getInstance().getValue(req, "USERMODEL")).getUsername());
 		news = newsService.save(news);
 		mapper.writeValue(resp.getOutputStream(), news);
-//		System.out.println(news);
 	}
 
 	@Override
