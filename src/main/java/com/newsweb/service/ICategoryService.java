@@ -7,4 +7,6 @@ import com.newsweb.model.CategoryModel;
 public interface ICategoryService {
 
 	List<CategoryModel> findAll();
+	
+	CategoryModel findById(long id);
 }

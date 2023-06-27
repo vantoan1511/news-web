@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<c:url var="APIurl" value="/api-admin-news" />
+<c:url var="newsURL" value="/admin-news" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +29,7 @@
 				<div class="col-lg-2">
 					<div class="row">
 						<div class="">
-							<a flag="info"
-								href="<c:url value='/admin-news?type=edit' />"
+							<a flag="info" href="<c:url value='/admin-news?type=edit' />"
 								class="btn btn-outline-primary" aria-current="page"
 								title="Thêm bài viết" data-toggle="tooltip"> <span> <i
 									class="bi bi-plus-square"></i>
@@ -43,7 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<br/>
+			<br />
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="row">
@@ -53,6 +54,8 @@
 								data-mobile-responsive=true data-toggle="table">
 								<thead>
 									<tr>
+										<th scope="col"><input class="form-check-input"
+											type="checkbox" id="selectAll" value="" aria-label="..."></th>
 										<th scope="col">ID</th>
 										<th scope="col">Tên bài viết</th>
 										<th scope="col">Mô tả</th>
@@ -63,24 +66,24 @@
 								<tbody>
 									<c:forEach var="item" items="${model.getLists()}">
 										<tr>
-											<th scope="row">${item.getId()}</th>
+											<th scope="col"><input class="form-check-input"
+												type="checkbox" id="checkbox_${item.id}" value="${item.id}"
+												aria-label="..."></th>
+											<th scope="row">${item.id}</th>
 											<td>${item.title}</td>
 											<td>${item.description}</td>
 											<td>${item.categoryId }</td>
-											<td>
-												<c:url var="editURL" value='/admin-news' >
-													<c:param name="type" value="edit"/>
-													<c:param name="id" value="${item.getId()}"/>
-												</c:url>
-												<a class="btn btn-outline-primary" data-toggle="tooltip"
-												title = "Cập nhật bài viết" href="${editURL}">
-													<i class="bi bi-pencil-square"></i>
-												</a>
-											</td>
+											<td><c:url var="editURL" value='/admin-news'>
+													<c:param name="type" value="edit" />
+													<c:param name="id" value="${item.id}" />
+												</c:url> <a class="btn btn-outline-primary" data-toggle="tooltip"
+												title="Cập nhật bài viết" href="${editURL}"> <i
+													class="bi bi-pencil-square"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 							</table>
-							<br/>
+							<br />
 							<div class="container">
 								<ul class="pagination justify-content-center" id="pagination"></ul>
 								<input type="hidden" value="list" id="type" name="type">
@@ -119,6 +122,31 @@
 					$('#formSubmit').submit();
 				}
 			}
+		});
+		
+		$('#btnDelete').click((e)=>{
+			e.preventDefault();
+			var data = {};
+			var ids = $('tbody input[type=checkbox]:checked').map(function(){
+				return $(this).val();
+			}).get();
+			
+			data["ids"] = ids;
+			const deleteNews = function (data) {
+				$.ajax({
+					url: '${APIurl}',
+					type: 'DELETE',
+					contentType: 'application/json',
+					data: JSON.stringify(data),
+					success: function(result){
+						window.location.href = "${newsURL}?type=list&maxPageItem=2&page=1&sortBy=title&sortOrder=desc";
+					},
+					error: function(error){
+						console.log(error);
+					}
+				});
+			}
+			deleteNews(data);
 		});
 	</script>
 </body>

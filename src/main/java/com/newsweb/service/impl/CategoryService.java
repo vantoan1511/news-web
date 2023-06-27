@@ -18,4 +18,9 @@ public class CategoryService implements ICategoryService {
 		return categoryDAO.findAll();
 	}
 
+	@Override
+	public CategoryModel findById(long id) {
+		return categoryDAO.findById(id);
+	}
+
 }
